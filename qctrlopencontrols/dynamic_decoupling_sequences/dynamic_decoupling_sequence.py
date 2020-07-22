@@ -209,7 +209,7 @@ class DynamicDecouplingSequence:
         Prepares a friendly string format for a Dynamic Decoupling Sequence.
         """
 
-        dd_sequence_string = list()
+        dd_sequence_string = []
 
         if self.name is not None:
             dd_sequence_string.append("{}:".format(self.name))

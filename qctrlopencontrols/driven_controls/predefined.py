@@ -200,11 +200,10 @@ def _derive_segments(angles, amplitude=2.0 * np.pi):
         Segments for the driven control.
 
     """
-    segments = [
+    return [
         [amplitude * np.cos(phi), amplitude * np.sin(phi), 0.0, theta / amplitude]
         for (theta, phi) in angles
     ]
-    return segments
 
 
 def _new_primitive_control(

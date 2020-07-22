@@ -50,10 +50,7 @@ def _check_valid_operation(rabi_rotations, detuning_rotations):
 
     check_common_index = rabi_rotation_index.intersection(detuning_rotation_index)
 
-    if check_common_index:
-        return False
-
-    return True
+    return not check_common_index
 
 
 def _check_maximum_rotation_rate(maximum_rabi_rate, maximum_detuning_rate):
@@ -320,7 +317,7 @@ def convert_dds_to_driven_control(
     control_durations = np.zeros((operations.shape[1] * 2,))
 
     pulse_segment_idx = 0
-    for op_idx in range(0, operations.shape[1]):
+    for op_idx in range(operations.shape[1]):
         pulse_width = pulse_start_ends[op_idx, 1] - pulse_start_ends[op_idx, 0]
         control_durations[pulse_segment_idx] = pulse_width
 

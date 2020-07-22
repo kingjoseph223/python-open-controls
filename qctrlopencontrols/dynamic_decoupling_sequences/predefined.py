@@ -1090,9 +1090,7 @@ def _carr_purcell_meiboom_gill_offsets(
     # prepare the offsets for delta comb
     deltas = spacing * np.arange(number_of_offsets)
     deltas += start
-    offsets = deltas * duration
-
-    return offsets
+    return deltas * duration
 
 
 def _uhrig_single_axis_offsets(
@@ -1119,9 +1117,7 @@ def _uhrig_single_axis_offsets(
     deltas = np.array(
         [(np.sin(np.pi * k * constant)) ** 2 for k in range(1, number_of_offsets + 1)]
     )
-    offsets = duration * deltas
-
-    return offsets
+    return duration * deltas
 
 
 def _concatenation_x(concatenation_sequence: int = 1) -> np.ndarray:
@@ -1143,7 +1139,7 @@ def _concatenation_x(concatenation_sequence: int = 1) -> np.ndarray:
     if concatenation_sequence == 1:
         return np.array([1, 0, 1, 0])
 
-    cumulated_operations = np.concatenate(
+    return np.concatenate(
         (
             _concatenation_x(concatenation_sequence - 1),
             np.array([0]),
@@ -1152,7 +1148,6 @@ def _concatenation_x(concatenation_sequence: int = 1) -> np.ndarray:
         ),
         axis=0,
     )
-    return cumulated_operations
 
 
 def _concatenation_xy(concatenation_sequence: int = 1) -> np.ndarray:
