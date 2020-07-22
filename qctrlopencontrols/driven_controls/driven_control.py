@@ -262,9 +262,7 @@ class DrivenControl:
         amplitudes = np.sqrt(
             self.amplitude_x ** 2 + self.amplitude_y ** 2 + self.detunings ** 2
         )
-        angles = amplitudes * self.durations
-
-        return angles
+        return amplitudes * self.durations
 
     @property
     def directions(self):
@@ -293,15 +291,13 @@ class DrivenControl:
         normalized_amplitude_y = self.amplitude_y / safe_amplitudes
         normalized_detunings = self.detunings / safe_amplitudes
 
-        directions = np.hstack(
+        return np.hstack(
             (
                 normalized_amplitude_x[:, np.newaxis],
                 normalized_amplitude_y[:, np.newaxis],
                 normalized_detunings[:, np.newaxis],
             )
         )
-
-        return directions
 
     @property
     def times(self):
@@ -373,10 +369,7 @@ class DrivenControl:
         amplitude_y = self.amplitude_y
         if coordinates == Coordinate.CYLINDRICAL.value:
             if file_type == FileType.CSV.value:
-                control_info = list()
-                control_info.append(
-                    "amplitude_x,amplitude_y,detuning,duration,maximum_rabi_rate"
-                )
+                control_info = ["amplitude_x,amplitude_y,detuning,duration,maximum_rabi_rate"]
                 for segment_idx in range(self.number_of_segments):
                     control_info.append(
                         "{},{},{},{},{}".format(
@@ -388,7 +381,7 @@ class DrivenControl:
                         )
                     )
             else:
-                control_info = dict()
+                control_info = {}
                 if self.name is not None:
                     control_info["name"] = self.name
                 control_info["maximum_rabi_rate"] = self.maximum_rabi_rate
@@ -400,10 +393,10 @@ class DrivenControl:
         else:
 
             if file_type == FileType.CSV.value:
-                control_info = list()
-                control_info.append(
+                control_info = [
                     "rabi_rate,azimuthal_angle,detuning,duration,maximum_rabi_rate"
-                )
+                ]
+
                 for segment_idx in range(self.number_of_segments):
                     control_info.append(
                         "{},{},{},{},{}".format(
@@ -418,7 +411,7 @@ class DrivenControl:
                     )
 
             else:
-                control_info = dict()
+                control_info = {}
                 if self.name is not None:
                     control_info["name"] = self.name
                 control_info["maximum_rabi_rate"] = self.maximum_rabi_rate
@@ -570,11 +563,7 @@ class DrivenControl:
                 arguments={"coordinates": coordinates},
             )
 
-        if dimensionless_rabi_rate:
-            normalizer = self.maximum_rabi_rate
-        else:
-            normalizer = 1
-
+        normalizer = self.maximum_rabi_rate if dimensionless_rabi_rate else 1
         plot_dictionary = {}
 
         plot_x = self.amplitude_x / normalizer
@@ -607,7 +596,7 @@ class DrivenControl:
     def __str__(self):
         """Prepares a friendly string format for a Driven Control
         """
-        driven_control_string = list()
+        driven_control_string = []
 
         if self.name is not None:
             driven_control_string.append("{}:".format(self.name))

@@ -315,17 +315,14 @@ def test_pretty_print():
     _pretty_detunings = ",".join(_pretty_detunings)
     _pretty_durations = ",".join(_pretty_durations)
 
-    _pretty_string = []
-    _pretty_string.append(
-        "Rabi Rates = [{}] x {}".format(_pretty_rabi_rates, _maximum_rabi_rate)
-    )
-    _pretty_string.append(
-        "Azimuthal Angles = [{}] x pi".format(_pretty_azimuthal_angles)
-    )
-    _pretty_string.append(
-        "Detunings = [{}] x {}".format(_pretty_detunings, _maximum_detuning)
-    )
-    _pretty_string.append("Durations = [{}] x 3.0".format(_pretty_durations))
+    _pretty_string = [
+        "Rabi Rates = [{}] x {}".format(
+            _pretty_rabi_rates, _maximum_rabi_rate
+        ),
+        "Azimuthal Angles = [{}] x pi".format(_pretty_azimuthal_angles),
+        "Detunings = [{}] x {}".format(_pretty_detunings, _maximum_detuning),
+        "Durations = [{}] x 3.0".format(_pretty_durations),
+    ]
 
     _pretty_string = "\n".join(_pretty_string)
 
@@ -356,17 +353,14 @@ def test_pretty_print():
     _pretty_detunings = ",".join(_pretty_detunings)
     _pretty_durations = ",".join(_pretty_durations)
 
-    _pretty_string = []
-    _pretty_string.append(
-        "Rabi Rates = [{}] x {}".format(_pretty_rabi_rates, _maximum_rabi_rate)
-    )
-    _pretty_string.append(
-        "Azimuthal Angles = [{}] x pi".format(_pretty_azimuthal_angles)
-    )
-    _pretty_string.append(
-        "Detunings = [{}] x {}".format(_pretty_detunings, _maximum_detuning)
-    )
-    _pretty_string.append("Durations = [{}] x 3.0".format(_pretty_durations))
+    _pretty_string = [
+        "Rabi Rates = [{}] x {}".format(
+            _pretty_rabi_rates, _maximum_rabi_rate
+        ),
+        "Azimuthal Angles = [{}] x pi".format(_pretty_azimuthal_angles),
+        "Detunings = [{}] x {}".format(_pretty_detunings, _maximum_detuning),
+        "Durations = [{}] x 3.0".format(_pretty_durations),
+    ]
 
     _pretty_string = "\n".join(_pretty_string)
 
@@ -399,17 +393,14 @@ def test_pretty_print():
     _pretty_detunings = ",".join(_pretty_detunings)
     _pretty_durations = ",".join(_pretty_durations)
 
-    _pretty_string = []
-    _pretty_string.append(
-        "Rabi Rates = [{}] x {}".format(_pretty_rabi_rates, _maximum_rabi_rate)
-    )
-    _pretty_string.append(
-        "Azimuthal Angles = [{}] x pi".format(_pretty_azimuthal_angles)
-    )
-    _pretty_string.append(
-        "Detunings = [{}] x {}".format(_pretty_detunings, _maximum_detuning)
-    )
-    _pretty_string.append("Durations = [{}] x 3.0".format(_pretty_durations))
+    _pretty_string = [
+        "Rabi Rates = [{}] x {}".format(
+            _pretty_rabi_rates, _maximum_rabi_rate
+        ),
+        "Azimuthal Angles = [{}] x pi".format(_pretty_azimuthal_angles),
+        "Detunings = [{}] x {}".format(_pretty_detunings, _maximum_detuning),
+        "Durations = [{}] x 3.0".format(_pretty_durations),
+    ]
 
     _pretty_string = "\n".join(_pretty_string)
 
